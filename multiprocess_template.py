@@ -1,6 +1,12 @@
 # -*- coding: utf-8 -*-
 import time
 from multiprocessing import Process, Queue
+import os
+
+os.environ['MKL_NUM_THREADS'] = '1'
+os.environ['OMP_NUM_THREADS'] = '1'
+os.environ['MKL_DYNAMIC'] = 'FALSE'
+os.environ['OPENBLAS_NUM_THREADS'] = '1'
 
 
 def parallelize(q, arg1, arg2, process_no):
